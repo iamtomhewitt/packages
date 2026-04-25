@@ -1,0 +1,162 @@
+{
+  "brace-style": [
+    "error",
+    "stroustrup"
+  ],
+  "comma-dangle": [
+    "error",
+    "always-multiline"
+  ],
+  "comma-spacing": [
+    "error",
+    {
+      "before": false,
+      "after": true
+    }
+  ],
+  "curly": [
+    "error"
+  ],
+  "indent": [
+    "error",
+    2,
+    {
+      "SwitchCase": 1
+    }
+  ],
+  "key-spacing": [
+    "error",
+    {
+      "beforeColon": false,
+      "afterColon": true,
+      "mode": "strict"
+    }
+  ],
+  "keyword-spacing": [
+    "error",
+    {
+      "before": true,
+      "after": true
+    }
+  ],
+  "max-len": "off",
+  "no-console": "off",
+  "no-multiple-empty-lines": [
+    "error",
+    {
+      "max": 1
+    }
+  ],
+  "object-curly-newline": [
+    "error",
+    {
+      "ObjectExpression": {
+        "multiline": true,
+        "minProperties": 1
+      },
+      "ObjectPattern": {
+        "multiline": true
+      },
+      "ImportDeclaration": "never",
+      "ExportDeclaration": {
+        "multiline": true,
+        "minProperties": 3
+      }
+    }
+  ],
+  "object-curly-spacing": [
+    "error",
+    "always",
+    {
+      "arraysInObjects": true,
+      "objectsInObjects": true
+    }
+  ],
+  "object-property-newline": [
+    "error",
+    {
+      "allowAllPropertiesOnSameLine": false
+    }
+  ],
+  "padded-blocks": [
+    "error",
+    "never"
+  ],
+  "prefer-destructuring": [
+    "error",
+    {
+      "object": true,
+      "array": false
+    }
+  ],
+  "quotes": [
+    "error",
+    "single"
+  ],
+  "quote-props": [
+    "error",
+    "as-needed"
+  ],
+  "retail-linter/sort-imports": "error",
+  "semi": [
+    "error",
+    "always"
+  ],
+  "semi-spacing": [
+    "error",
+    {
+      "before": false,
+      "after": true
+    }
+  ],
+  "space-before-blocks": [
+    "error",
+    "always"
+  ],
+  "space-in-parens": [
+    "error",
+    "never"
+  ],
+  "space-infix-ops": "error",
+  "space-before-function-paren": [
+    "error",
+    "always"
+  ],
+  "arrow-spacing": [
+    "error",
+    {
+      "before": true,
+      "after": true
+    }
+  ],
+  "jsx-quotes": [
+    2,
+    "prefer-single"
+  ],
+  "no-import-assign": "off",
+  "lines-between-class-members": [
+    "error",
+    "always"
+  ],
+  "prefer-arrow/prefer-arrow-functions": [
+    "error",
+    {
+      "disallowPrototype": true,
+      "singleReturnOnly": false,
+      "classPropertiesAllowed": false
+    }
+  ],
+  "prefer-arrow-callback": [
+    "error",
+    {
+      "allowNamedFunctions": true
+    }
+  ],
+  "func-style": [
+    "error",
+    "expression",
+    {
+      "allowArrowFunctions": true
+    }
+  ]
+}

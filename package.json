@@ -1,0 +1,17 @@
+{
+  "name": "@iamtomhewitt/packages",
+  "version": "1.0.0",
+  "author": "Tom Hewitt",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --ws"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "20.5.0",
+    "@commitlint/config-conventional": "20.5.0",
+    "husky": "9.1.7"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}
