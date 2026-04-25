@@ -4,7 +4,8 @@
   "author": "Tom Hewitt",
   "private": true,
   "scripts": {
-    "build": "npm run build --ws"
+    "build": "npm run build --ws",
+    "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/cli": "20.5.0",
