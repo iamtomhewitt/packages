@@ -1,4 +1,5 @@
 import { ESLint } from 'eslint';
+
 import sortImports from './sort-imports';
 
 const customRules: ESLint.Plugin = {
@@ -7,4 +8,4 @@ const customRules: ESLint.Plugin = {
   },
 };
 
-export default customRules
+export default customRules;

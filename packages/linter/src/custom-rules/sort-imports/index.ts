@@ -72,7 +72,7 @@ const sortImportsRule: Rule.RuleModule = {
 
 export default sortImportsRule;
 
-function maybeReportChunkSorting(chunk: any, context: any, outerGroups: any) {
+function maybeReportChunkSorting (chunk: any, context: any, outerGroups: any) {
   const sourceCode = context.getSourceCode();
   const items = shared.getImportExportItems(
     chunk,
@@ -87,7 +87,7 @@ function maybeReportChunkSorting(chunk: any, context: any, outerGroups: any) {
   shared.maybeReportSorting(context, sorted, start, end);
 }
 
-function makeSortedItems(items: any[], outerGroups: any) {
+function makeSortedItems (items: any[], outerGroups: any) {
   const itemGroups = outerGroups.map((groups: any[]) =>
     groups.map((regex) => ({
       regex,
@@ -136,25 +136,25 @@ function makeSortedItems(items: any[], outerGroups: any) {
 }
 
 // Exclude 'ImportDefaultSpecifier' – the 'def' in `import def, {a, b}`.
-function getSpecifiers(importNode: any) {
+function getSpecifiers (importNode: any) {
   return importNode.specifiers.filter((node: any) => isImportSpecifier(node));
 }
 
 // Full import statement.
-function isImport(node: any) {
+function isImport (node: any) {
   return node.type === 'ImportDeclaration';
 }
 
 // import def, { a, b as c, type d } from 'A'
 //               ^  ^^^^^^  ^^^^^^
-function isImportSpecifier(node: any) {
+function isImportSpecifier (node: any) {
   return node.type === 'ImportSpecifier';
 }
 
 // import 'setup'
 // But not: import {} from 'setup'
 // And not: import type {} from 'setup'
-function isSideEffectImport(importNode: any, sourceCode: any) {
+function isSideEffectImport (importNode: any, sourceCode: any) {
   return (
     importNode.specifiers.length === 0 &&
     (!importNode.importKind || importNode.importKind === 'value') &&

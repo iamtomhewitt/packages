@@ -50,9 +50,7 @@ const lint = async () => {
       fix,
     });
 
-
     const results = await eslint.lintFiles([folderToLint]);
-
 
     await ESLint.outputFixes(results);
 

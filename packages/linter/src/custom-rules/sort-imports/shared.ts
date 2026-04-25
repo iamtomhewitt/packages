@@ -4,7 +4,7 @@
 
 // A “chunk” is a sequence of statements of a certain type with only comments
 // and whitespace between.
-function extractChunks(parentNode: any, isPartOfChunk: any) {
+function extractChunks (parentNode: any, isPartOfChunk: any) {
   const chunks = [];
   let chunk = [];
   let lastNode = undefined;
@@ -45,7 +45,7 @@ function extractChunks(parentNode: any, isPartOfChunk: any) {
   return chunks;
 }
 
-function maybeReportSorting(context: any, sorted: any, start: any, end: any) {
+function maybeReportSorting (context: any, sorted: any, start: any, end: any) {
   const sourceCode = context.getSourceCode();
   const original = sourceCode.getText().slice(start, end);
   if (original !== sorted) {
@@ -60,7 +60,7 @@ function maybeReportSorting(context: any, sorted: any, start: any, end: any) {
   }
 }
 
-function printSortedItems(sortedItems: any[], originalItems: any[], sourceCode: any) {
+function printSortedItems (sortedItems: any[], originalItems: any[], sourceCode: any) {
   let alphabeticallySorted = '';
 
   const newline = guessNewline(sourceCode);
@@ -157,7 +157,7 @@ function printSortedItems(sortedItems: any[], originalItems: any[], sourceCode: 
 // the import/export. Most importantly there’s a `code` property that contains
 // the node as a string, with comments (if any). Finding the corresponding
 // comments is the hard part.
-function getImportExportItems(
+function getImportExportItems (
   passedChunk: any,
   sourceCode: any,
   isSideEffectImport: any,
@@ -250,7 +250,7 @@ function getImportExportItems(
 // node to end at the `from` string instead.
 //
 // In the above example, the import is adjusted to end after `"x"`.
-function handleLastSemicolon(chunk: any, sourceCode: any) {
+function handleLastSemicolon (chunk: any, sourceCode: any) {
   const lastIndex = chunk.length - 1;
   const lastNode = chunk[lastIndex];
   const [nextToLastToken, lastToken] = sourceCode.getLastTokens(lastNode, {
@@ -285,7 +285,7 @@ function handleLastSemicolon(chunk: any, sourceCode: any) {
   return chunk.slice(0, lastIndex).concat(newLastNode);
 }
 
-function printWithSortedSpecifiers(node: any, sourceCode: any, getSpecifiers: any) {
+function printWithSortedSpecifiers (node: any, sourceCode: any, getSpecifiers: any) {
   const allTokens = getAllTokens(node, sourceCode);
   const openBraceIndex = allTokens.findIndex((token) =>
     isPunctuator(token, '{'),
@@ -409,7 +409,7 @@ function printWithSortedSpecifiers(node: any, sourceCode: any, getSpecifiers: an
 //
 // We have to do carefully preserve all original whitespace this way in order to
 // be compatible with other stylistic ESLint rules.
-function getSpecifierItems(tokens: any[]) {
+function getSpecifierItems (tokens: any[]) {
   const result: any = {
     before: [],
     after: [],
@@ -593,7 +593,7 @@ function getSpecifierItems(tokens: any[]) {
   return result;
 }
 
-function makeEmptyItem() {
+function makeEmptyItem () {
   return {
     // "before" | "specifier" | "after"
     state: 'before',
@@ -607,7 +607,7 @@ function makeEmptyItem() {
 // If a specifier item starts with a line comment or a singleline block comment
 // it needs a newline before that. Otherwise that comment can end up belonging
 // to the _previous_ specifier after sorting.
-function needsStartingNewline(tokens: any[]) {
+function needsStartingNewline (tokens: any[]) {
   const before = tokens.filter((token) => !isSpaces(token));
 
   if (before.length === 0) {
@@ -621,23 +621,23 @@ function needsStartingNewline(tokens: any[]) {
   );
 }
 
-function endsWithSpaces(tokens: any[]) {
+function endsWithSpaces (tokens: any[]) {
   const last = tokens.length > 0 ? tokens[tokens.length - 1] : undefined;
   return last == null ? false : isSpaces(last);
 }
 
 const NEWLINE = /(\r?\n)/;
 
-function hasNewline(string: string) {
+function hasNewline (string: string) {
   return NEWLINE.test(string);
 }
 
-function guessNewline(sourceCode: any) {
+function guessNewline (sourceCode: any) {
   const match = NEWLINE.exec(sourceCode.text);
   return match == null ? '\n' : match[0];
 }
 
-function parseWhitespace(whitespace: string) {
+function parseWhitespace (whitespace: string) {
   const allItems = whitespace.split(NEWLINE);
 
   // Remove blank lines. `allItems` contains alternating `spaces` (which can be
@@ -675,13 +675,13 @@ function parseWhitespace(whitespace: string) {
   );
 }
 
-function removeBlankLines(whitespace: string) {
+function removeBlankLines (whitespace: string) {
   return printTokens(parseWhitespace(whitespace));
 }
 
 // Returns `sourceCode.getTokens(node)` plus whitespace and comments. All tokens
 // have a `code` property with `sourceCode.getText(token)`.
-function getAllTokens(node: any, sourceCode: any) {
+function getAllTokens (node: any, sourceCode: any) {
   const tokens = sourceCode.getTokens(node);
   const lastTokenIndex = tokens.length - 1;
   return flatMap(tokens, (token: any, tokenIndex: number) => {
@@ -722,13 +722,13 @@ function getAllTokens(node: any, sourceCode: any) {
 
 // Prints tokens that are enhanced with a `code` property – like those returned
 // by `getAllTokens` and `parseWhitespace`.
-function printTokens(tokens: any[]) {
+function printTokens (tokens: any[]) {
   return tokens.map((token) => token.code).join('');
 }
 
 // `comments` is a list of comments that occur before `node`. Print those and
 // the whitespace between themselves and between `node`.
-function printCommentsBefore(node: any, comments: any[], sourceCode: any) {
+function printCommentsBefore (node: any, comments: any[], sourceCode: any) {
   const lastIndex = comments.length - 1;
   return comments
     .map((comment, index) => {
@@ -743,7 +743,7 @@ function printCommentsBefore(node: any, comments: any[], sourceCode: any) {
 
 // `comments` is a list of comments that occur after `node`. Print those and
 // the whitespace between themselves and between `node`.
-function printCommentsAfter(node: any, comments: any[], sourceCode: any) {
+function printCommentsAfter (node: any, comments: any[], sourceCode: any) {
   return comments
     .map((comment, index) => {
       const previous = index === 0 ? node : comments[index - 1];
@@ -756,7 +756,7 @@ function printCommentsAfter(node: any, comments: any[], sourceCode: any) {
     .join('');
 }
 
-function getIndentation(node: any, sourceCode: any) {
+function getIndentation (node: any, sourceCode: any) {
   const tokenBefore = sourceCode.getTokenBefore(node, {
     includeComments: true,
   });
@@ -770,7 +770,7 @@ function getIndentation(node: any, sourceCode: any) {
   return lines.length > 1 ? lines[lines.length - 1] : '';
 }
 
-function getTrailingSpaces(node: any, sourceCode: any) {
+function getTrailingSpaces (node: any, sourceCode: any) {
   const tokenAfter = sourceCode.getTokenAfter(node, {
     includeComments: true,
   });
@@ -784,7 +784,7 @@ function getTrailingSpaces(node: any, sourceCode: any) {
   return lines[0];
 }
 
-function sortImportExportItems(items: any[]) {
+function sortImportExportItems (items: any[]) {
   return items.slice().sort((itemA, itemB) =>
     // If both items are side effect imports, keep their original order.
     itemA.isSideEffectImport && itemB.isSideEffectImport
@@ -808,7 +808,7 @@ function sortImportExportItems(items: any[]) {
   );
 }
 
-function sortSpecifierItems(items: any[]) {
+function sortSpecifierItems (items: any[]) {
   return items.slice().sort(
     (itemA, itemB) =>
       // Compare by imported or exported name (external interface name).
@@ -844,39 +844,39 @@ const collator = new Intl.Collator('en', {
   numeric: true,
 });
 
-function compare(a: any, b: any) {
+function compare (a: any, b: any) {
   return collator.compare(a, b) || (a < b ? -1 : a > b ? 1 : 0);
 }
 
-function isIdentifier(node: any) {
+function isIdentifier (node: any) {
   return node.type === 'Identifier';
 }
 
-function isKeyword(node: any) {
+function isKeyword (node: any) {
   return node.type === 'Keyword';
 }
 
-function isPunctuator(node: any, value: any) {
+function isPunctuator (node: any, value: any) {
   return node.type === 'Punctuator' && node.value === value;
 }
 
-function isBlockComment(node: any) {
+function isBlockComment (node: any) {
   return node.type === 'Block';
 }
 
-function isLineComment(node: any) {
+function isLineComment (node: any) {
   return node.type === 'Line';
 }
 
-function isSpaces(node: any) {
+function isSpaces (node: any) {
   return node.type === 'Spaces';
 }
 
-function isNewline(node: any) {
+function isNewline (node: any) {
   return node.type === 'Newline';
 }
 
-function getSource(node: any) {
+function getSource (node: any) {
   const source = node.source.value;
 
   return {
@@ -910,7 +910,7 @@ function getSource(node: any) {
   };
 }
 
-function getImportExportKind(node: any) {
+function getImportExportKind (node: any) {
   // `type` and `typeof` imports, as well as `type` exports (there are no
   // `typeof` exports). In Flow, import specifiers can also have a kind. Default
   // to "value" (like TypeScript) to make regular imports/exports come after the
@@ -919,7 +919,7 @@ function getImportExportKind(node: any) {
 }
 
 // Like `Array.prototype.findIndex`, but searches from the end.
-function findLastIndex(array: any, fn: any) {
+function findLastIndex (array: any, fn: any) {
   for (let index = array.length - 1; index >= 0; index--) {
     if (fn(array[index], index, array)) {
       return index;
@@ -931,7 +931,7 @@ function findLastIndex(array: any, fn: any) {
 }
 
 // Like `Array.prototype.flatMap`, had it been available.
-function flatMap(array: any, fn: any) {
+function flatMap (array: any, fn: any) {
   return [].concat(...array.map(fn));
 }
 
