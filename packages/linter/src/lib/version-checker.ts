@@ -1,22 +1,14 @@
 import chalk from 'chalk';
-import https from 'https';
 import nodeFetch from 'node-fetch';
 
-import { retailLinter } from './retail-linter.js';
-
-const httpsAgent = new https.Agent({
-  rejectUnauthorized: false,
-});
+const current = __VERSION__; // injected by esbuild at build time
 
 const checkVersion = async () => {
   try {
     const url = 'https://registry.npmjs.org/retail-linter';
-    const response = await nodeFetch(url, {
-      agent: httpsAgent,
-    });
+    const response = await nodeFetch(url);
     const json = await response.json() as any;
     const { latest } = json['dist-tags'];
-    const { version: current } = retailLinter.getPackageJson();
 
     if (current !== latest) {
       const topMessage = `${chalk.white('Update available')} ${chalk.grey(current)} ${chalk.white('➡️')} ${chalk.green(latest)}`;

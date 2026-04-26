@@ -1,4 +1,4 @@
-{
+export default {
   "env": {
     "es2021": true,
     "jest": true,

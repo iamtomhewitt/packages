@@ -1,4 +1,4 @@
-{
+export default {
 	"env": {
 		"browser": true,
 		"jasmine": true,

@@ -1,4 +1,4 @@
-{
+export default {
   "brace-style": [
     "error",
     "stroustrup"

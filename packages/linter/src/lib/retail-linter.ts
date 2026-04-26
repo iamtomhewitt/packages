@@ -1,11 +1,6 @@
 import chalk from 'chalk';
-import fs from 'fs';
-import path from 'path';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const currentVersion = __VERSION__; // injected by esbuild at build time
 
 const eslintFilesIgnoredByDefault = [
   'coverage',
@@ -36,17 +31,11 @@ const showHelp = () => {
 };
 
 const showVersion = () => {
-  const { version } = getPackageJson();
-  console.log(chalk.white(`Retail Linter ${version}`));
-};
-
-const getPackageJson = () => {
-  return JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../package.json')).toString());
+  console.log(chalk.white(`Retail Linter ${currentVersion}`));
 };
 
 export const retailLinter = {
   eslintFilesIgnoredByDefault,
-  getPackageJson,
   showHelp,
   showVersion,
 };

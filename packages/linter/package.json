@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "ts-node build.ts"
+    "build": "rm -rf dist && ts-node build.ts"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "5.53.0",
@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "@tsconfig/node24": "24.0.4",
-    "@types/eslint": "9.6.1",
+    "@types/eslint": "8.56.12",
     "@types/node": "25.6.0",
     "esbuild": "0.28.0",
     "typescript": "6.0.3"

@@ -1,4 +1,4 @@
-{
+export default {
 	"extends": "eslint:recommended",
 	"env": {
 		"es2021": true,
