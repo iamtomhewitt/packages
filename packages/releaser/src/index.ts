@@ -17,6 +17,7 @@ const colours = {
 
 const log = {
   blue: (str: string) => console.log(colours.blue, str),
+  clear: () => console.log('', colours.reset),
   green: (str: string) => console.log(colours.green, str),
   red: (str: string) => console.log(colours.red, str),
   multiColour: (segments: string[][]) => {
@@ -95,8 +96,10 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
       10,
     );
 
-    log.blue(`Commits: ${commits}`);
     log.blue(`Latest tag: ${latestTag}`);
+    log.blue(`Commits: ${commits}`);
+    log.blue(`feat commits: ${numberOfFeatureCommits}`);
+    log.blue(`chore commits: ${numberOfChoreCommits}`);
     log.blue(`Files changed: ${numberOfFilesChanged}`);
 
     const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
@@ -168,6 +171,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     const newChangelog = `${entry}\n\n${existingChangelog} `;
 
     if (!isDryRun) {
+      log.clear();
       fs.writeFileSync(changelogFilePath, newChangelog);
       execSync('git add .');
       execSync(`git commit -m 'release: version ${newVersion}'`);
