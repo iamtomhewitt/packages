@@ -2,7 +2,7 @@
   "name": "@iamtomhewitt/releaser",
   "version": "1.0.2",
   "author": "Tom Hewitt",
-  "main": "dist/index.js",
+  "main": "index.js",
   "type": "module",
   "bin": {
     "iamtomhewitt-releaser": "index.js"
