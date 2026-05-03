@@ -22,7 +22,7 @@ jobs:
           node-version: '24'
           registry-url: 'https://registry.npmjs.org'
       - name: Install
-        run: npm ci
+        run: npm install
       - name: Test
         run: npm run test --if-present
       - name: Build
