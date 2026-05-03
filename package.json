@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "build": "npm run build --ws",
+    "lint": "npm run lint --ws --if-present",
     "prepare": "husky"
   },
   "devDependencies": {

@@ -2,6 +2,8 @@
 
 Custom linter supporting typescript / javascript, including `.scss` and `.md` files.
 
+## Installation
+
 ```sh
 npm i -D @iamtomhewitt/linter
 ```
