@@ -7,9 +7,6 @@
   "bin": {
     "iamtomhewitt-linter": "index.js"
   },
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "build": "rm -rf dist && ts-node build.ts",
     "lint": "iamtomhewitt-linter --sourceFolder=./ --type=typescript",
