@@ -1,3 +1,9 @@
+## Version 1.0.3
+Released **3rd May 2026 10:06:43pm** - *3 commits*
+- b007eb9 fix: remove files property
+- c460ca9 fix: update package main
+- 2539744 fix: update bin location
+
 ## Version 1.0.2
 Released **3rd May 2026 09:54:56pm** - *1 commits*
 - 30a8ae9 refactor: various updates
@@ -42,4 +48,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-   
+    
