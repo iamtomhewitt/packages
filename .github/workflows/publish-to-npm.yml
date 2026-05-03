@@ -9,7 +9,7 @@ env:
   TAG: ${{ github.ref_name }}
 
 permissions:
-  id-token: write # Required for OIDC
+  id-token: write
   contents: read
 
 jobs:
@@ -29,4 +29,6 @@ jobs:
         run: npm run build --if-present
       - name: Publish ${{ env.TAG }}
         run: |
+          npm config set registry https://registry.npmjs.org/
+          npm config set _authToken=${{ secrets.NPM_PUBLISH_TOKEN }}
           (cd packages/linter/dist && npm publish --access public)
