@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "build": "rm -rf dist && ts-node build.ts",
-    "postbuild": "cp package.json dist"
+    "postbuild": "cp package.json dist && cp README.md dist"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "5.53.0",
