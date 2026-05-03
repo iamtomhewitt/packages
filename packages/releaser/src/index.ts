@@ -61,6 +61,9 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
         ['  --dryRun ', colours.white],
         ['Runs the releaser, but will not modify or commit any files', colours.blue],
         newline,
+        ['  --forceVersion ', colours.white],
+        ['Force set a version, instead of one being calculated', colours.blue],
+        newline,
         ['  --help   ', colours.white],
         ['Shows this message', colours.blue],
       ])
@@ -116,7 +119,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
       newPatch++;
     }
 
-    const newVersion = `${newMajor}.${newMinor}.${newPatch}`;
+    const newVersion = args.forceVersion || `${newMajor}.${newMinor}.${newPatch}`;
     log.blue(`New version: ${newVersion}`);
 
     fs

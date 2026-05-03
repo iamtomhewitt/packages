@@ -10,6 +10,7 @@ updates your `CHANGELOG.md`, creates a tag, and pushes it all to your remote.
 Usage:
 
 - `--dryRun` runs the releaser, but will not modify or commit any files.
+- `--forceVersion` forces a version, instead of one being calculated.
 - `--help` is self explanatory.
 
 ## Installation
