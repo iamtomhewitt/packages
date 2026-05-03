@@ -97,7 +97,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     );
 
     log.blue(`Latest tag: ${latestTag}`);
-    log.blue(`Commits: ${commits}`);
+    log.blue(`Commits: \n  ${commits.join('\n  ')}`);
     log.blue(`feat commits: ${numberOfFeatureCommits}`);
     log.blue(`chore commits: ${numberOfChoreCommits}`);
     log.blue(`Files changed: ${numberOfFilesChanged}`);
