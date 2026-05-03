@@ -128,8 +128,8 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
       })
       .map(pkgPath => {
         const pkgContents = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
-        pkg.version = newVersion;
-        !isDryRun && fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2))
+        pkgContents.version = newVersion;
+        !isDryRun && fs.writeFileSync(pkgPath, JSON.stringify(pkgContents, null, 2))
         log.green(`Updated ${pkgPath} (${pkgContents.name}) to version ${newVersion}`)
       })
 
