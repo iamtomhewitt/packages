@@ -1,6 +1,6 @@
 {
   "name": "@iamtomhewitt/linter",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "author": "Tom Hewitt",
   "bin": {
     "iamtomhewitt-linter": "dist/index.js"
@@ -8,7 +8,8 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "rm -rf dist && ts-node build.ts"
+    "build": "rm -rf dist && ts-node build.ts",
+    "postbuild": "cp package.json dist"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "5.53.0",

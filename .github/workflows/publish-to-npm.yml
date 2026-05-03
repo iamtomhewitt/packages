@@ -23,9 +23,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install
         run: npm ci
-      - name: Build
-        run: npm run build --if-present
       - name: Test
         run: npm run test --if-present
-      - name: Publish $${{ env.TAG }}
-        run: echo TBC
+      - name: Build
+        run: npm run build --if-present
+      - name: Publish ${{ env.TAG }}
+        run: |
+          (cd packages/linter/dist && npm publish --access public)
