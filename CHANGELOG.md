@@ -1,3 +1,8 @@
+## Version 1.0.1
+Released **3rd May 2026 09:42:38pm** - *2 commits*
+- 8f59b16 fix: do not force now
+- c180483 ci: add releaser to ci config
+
 ## Version 1.0.0
 Released **3rd May 2026 09:38:31pm** - *32 commits*
 - 9255ce7 ci: update ci install
@@ -33,4 +38,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
- 
+  
