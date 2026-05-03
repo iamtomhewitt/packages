@@ -3,9 +3,9 @@
 Creates and writes a new version of your project using your commits based on `@commitlint/config-conventional`
 updates your `CHANGELOG.md`, creates a tag, and pushes it all to your remote.
 
-  - `feat` commits, or more than 25 changed files since the last tag, bumps major
-  - `chore` commits bumps minor
-  - everything else commits bumps patch
+- `feat` commits, or more than 25 changed files since the last tag, bumps major
+- `chore` commits bumps minor
+- everything else commits bumps patch
 
 Usage:
 

@@ -4,6 +4,8 @@ import { build } from 'esbuild';
 
 const pkg = JSON.parse(fs.readFileSync(path.resolve('./package.json')).toString());
 
+console.log(`Building ${pkg.version} of ${pkg.name}`);
+
 await build({
   bundle: true,
   define: {

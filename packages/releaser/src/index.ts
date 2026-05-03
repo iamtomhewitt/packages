@@ -5,14 +5,14 @@ import fs from 'fs';
 import { execSync } from 'child_process';
 
 const colours = {
-  blue: "\x1b[36m",
-  green: "\x1b[32m",
-  magenta: "\x1b[35m",
-  purple: "\x1b[34m",
-  red: "\x1b[31m",
-  reset: "\x1b[0m",
-  white: "\x1b[37m",
-  yellow: "\x1b[33m",
+  blue: '\x1b[36m',
+  green: '\x1b[32m',
+  magenta: '\x1b[35m',
+  purple: '\x1b[34m',
+  red: '\x1b[31m',
+  reset: '\x1b[0m',
+  white: '\x1b[37m',
+  yellow: '\x1b[33m',
 };
 
 const log = {
@@ -26,9 +26,9 @@ const log = {
         const [text, colour] = segment;
         return `${colour}${text}`;
       })
-      .join("");
+      .join('');
     console.log(output + colours.reset);
-  }
+  },
 };
 
 const currentVersion = __VERSION__; // injected by esbuild at build time
@@ -36,10 +36,10 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
 (async () => {
   try {
     const args = argsParser(process.argv);
-    const isDryRun = args && args.dryRun
+    const isDryRun = args && args.dryRun;
 
     if (args.help || args.h) {
-      const newline = ['\n', colours.white]
+      const newline = ['\n', colours.white];
       log.multiColour([
         ['@iamtomhewitt/releaser version ', colours.purple],
         [currentVersion, colours.blue],
@@ -59,20 +59,22 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
         newline,
         ['Usage: ', colours.green],
         newline,
-        ['  --dryRun ', colours.white],
+        ['  --dryRun       ', colours.white],
         ['Runs the releaser, but will not modify or commit any files', colours.blue],
         newline,
         ['  --forceVersion ', colours.white],
         ['Force set a version, instead of one being calculated', colours.blue],
         newline,
-        ['  --help   ', colours.white],
+        ['  --help         ', colours.white],
         ['Shows this message', colours.blue],
-      ])
-      process.exit(0)
+      ]);
+      process.exit(0);
     }
 
-    if (!execSync('git status', { encoding: 'utf8' }).includes('working tree clean') && !isDryRun) {
-      throw new Error('Git working tree is not clean')
+    if (!execSync('git status', {
+      encoding: 'utf8', 
+    }).includes('working tree clean') && !isDryRun) {
+      throw new Error('Git working tree is not clean');
     }
 
     const latestTag = execSync('git describe --tags --abbrev=0')
@@ -127,43 +129,43 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
 
     fs
       .globSync('**/{package.json,package-lock.json}', {
-        exclude: ['**/node_modules/**', '**/dist/**']
+        exclude: ['**/node_modules/**', '**/dist/**'],
       })
       .map(pkgPath => {
         const pkgContents = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
         pkgContents.version = newVersion;
-        !isDryRun && fs.writeFileSync(pkgPath, JSON.stringify(pkgContents, null, 2))
-        log.green(`Updated ${pkgPath} (${pkgContents.name}) to version ${newVersion}`)
-      })
+        !isDryRun && fs.writeFileSync(pkgPath, JSON.stringify(pkgContents, null, 2));
+        log.green(`Updated ${pkgPath} (${pkgContents.name}) to version ${newVersion}`);
+      });
 
     const now = (() => {
       const pad = (n: number) => n.toString().padStart(2, '0');
       const ordinal = (n: number) => {
         if (n > 3 && n < 21) {
-          return n + "th"; // 11th–20th
+          return n + 'th'; // 11th–20th
         }
 
         switch (n % 10) {
-          case 1: return n + "st";
-          case 2: return n + "nd";
-          case 3: return n + "rd";
-          default: return n + "th";
+          case 1: return n + 'st';
+          case 2: return n + 'nd';
+          case 3: return n + 'rd';
+          default: return n + 'th';
         }
-      }
+      };
 
-      const date = new Date()
+      const date = new Date();
       const day = ordinal(date.getDate());
-      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
       const month = months[date.getMonth()];
       const year = date.getFullYear();
       let hours = date.getHours();
-      const ampm = hours >= 12 ? "pm" : "am";
+      const ampm = hours >= 12 ? 'pm' : 'am';
       hours = hours % 12 || 12; // convert to 12-hour format
       const minutes = pad(date.getMinutes());
       const seconds = pad(date.getSeconds());
 
       return `${day} ${month} ${year} ${pad(hours)}:${minutes}:${seconds}${ampm}`;
-    })()
+    })();
 
     const entry = `## Version ${newVersion}\nReleased **${now}** - *${commits.length} commits*\n- ${commits.join('\n- ')}`;
     const changelogFilePath = './CHANGELOG.md';
@@ -178,12 +180,14 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
       execSync('git push');
       execSync(`git tag ${newVersion}`);
       execSync('git push --tags');
-    } else {
-      log.blue('No changes have been made as the dry run flag (--dryRun) is present')
     }
-  } catch (err) {
-    log.red('\n@iamtomhewitt/release failed to run:')
-    log.red(`${err}`)
-    process.exit(1)
+    else {
+      log.blue('No changes have been made as the dry run flag (--dryRun) is present');
+    }
+  }
+  catch (err) {
+    log.red('\n@iamtomhewitt/release failed to run:');
+    log.red(`${err}`);
+    process.exit(1);
   }
 })();
