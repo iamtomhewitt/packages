@@ -1,6 +1,6 @@
 {
   "name": "@iamtomhewitt/linter",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "author": "Tom Hewitt",
   "main": "dist/index.js",
   "type": "module",

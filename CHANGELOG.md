@@ -1,0 +1,36 @@
+## Version 1.0.0
+Released **3rd May 2026 09:38:31pm** - *32 commits*
+- 9255ce7 ci: update ci install
+- ec39eeb chore: update log
+- 4f0f70d fix: some updates
+- 2136553 fix: correct package being updated
+- 9d51750 fix: typo
+- 80caabc fix: typo
+- 9f3fb18 chore: update script
+- 67d2543 chore: use ourself to create a release
+- 38d3f9d chore: add a force version option
+- 01c0f60 chore: move some deps to peer
+- 1307fba feat: first pass at adding releaser
+- 7b3a440 docs: add readme for linter
+- 9596be4 chore: lint itself
+- 6ba5b56 chore: cleanup
+- 307934f ci: testing
+- 2941253 ci: update command
+- 765e39f ci: attempt publish
+- a31edd7 chore: prepare for release
+- 049d630 chore: add ts-node
+- 425063d ci: rename workflow
+- f2085c5 ci: initial ci
+- 335b63b build: update bin
+- 1eb0301 chore: update bin
+- 0028665 chore: updates
+- 03fc21c build: update build
+- e81a704 chore: update package
+- 4f0d320 chore: lint itself
+- f8326a7 chore: fixing scripts
+- e4dda4a add prepare script
+- 4b94af4 reinstall husky
+- db924b5 testing husky
+- e0a6302 add readme
+
+ 
