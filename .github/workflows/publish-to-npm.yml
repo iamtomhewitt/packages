@@ -32,3 +32,4 @@ jobs:
           npm config set registry https://registry.npmjs.org/
           npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_PUBLISH_TOKEN }}
           (cd packages/linter/dist && npm publish --access public)
+          (cd packages/releaser/dist && npm publish --access public)
