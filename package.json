@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run build --ws",
     "lint": "npm run lint --ws --if-present",
-    "release": "ts-node packages/releaser/src/index.ts --forceVersion=1.0.0",
+    "release": "ts-node packages/releaser/dist/src/index.ts --forceVersion=1.0.0",
     "prepare": "husky"
   },
   "devDependencies": {
