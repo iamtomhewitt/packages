@@ -3,7 +3,7 @@ import path from 'path';
 import { ESLint } from 'eslint';
 
 import customRules from '../custom-rules';
-import rules from '../rules'
+import rules from '../rules';
 import { log, retailLinter } from '../lib';
 
 const args = argsParser(process.argv);
@@ -14,9 +14,9 @@ const lint = async () => {
     const { sourceFolder, fix = false, ignorePatterns: userIgnore = '', type = '' } = args;
 
     const ignorePatterns = retailLinter.eslintFilesIgnoredByDefault.concat(userIgnore.split(',')).filter(x => x);
-    const rulesKey = type.replace('-r', 'R').replace('-t', 'T')
-    const overrideConfig = (rules as any)[rulesKey]
-    const baseRules = rules.baseRules;
+    const rulesKey = type.replace('-r', 'R').replace('-t', 'T');
+    const overrideConfig = (rules as any)[rulesKey];
+    const { baseRules } = rules;
     const folderToLint = path.resolve(process.cwd(), sourceFolder);
 
     overrideConfig.ignorePatterns = ignorePatterns;

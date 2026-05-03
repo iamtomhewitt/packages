@@ -1,162 +1,162 @@
 export default {
-  "brace-style": [
-    "error",
-    "stroustrup"
+  'brace-style': [
+    'error',
+    'stroustrup',
   ],
-  "comma-dangle": [
-    "error",
-    "always-multiline"
+  'comma-dangle': [
+    'error',
+    'always-multiline',
   ],
-  "comma-spacing": [
-    "error",
+  'comma-spacing': [
+    'error',
     {
-      "before": false,
-      "after": true
-    }
+      before: false,
+      after: true,
+    },
   ],
-  "curly": [
-    "error"
+  curly: [
+    'error',
   ],
-  "indent": [
-    "error",
+  indent: [
+    'error',
     2,
     {
-      "SwitchCase": 1
-    }
+      SwitchCase: 1,
+    },
   ],
-  "key-spacing": [
-    "error",
+  'key-spacing': [
+    'error',
     {
-      "beforeColon": false,
-      "afterColon": true,
-      "mode": "strict"
-    }
+      beforeColon: false,
+      afterColon: true,
+      mode: 'strict',
+    },
   ],
-  "keyword-spacing": [
-    "error",
+  'keyword-spacing': [
+    'error',
     {
-      "before": true,
-      "after": true
-    }
+      before: true,
+      after: true,
+    },
   ],
-  "max-len": "off",
-  "no-console": "off",
-  "no-multiple-empty-lines": [
-    "error",
+  'max-len': 'off',
+  'no-console': 'off',
+  'no-multiple-empty-lines': [
+    'error',
     {
-      "max": 1
-    }
+      max: 1,
+    },
   ],
-  "object-curly-newline": [
-    "error",
+  'object-curly-newline': [
+    'error',
     {
-      "ObjectExpression": {
-        "multiline": true,
-        "minProperties": 1
+      ObjectExpression: {
+        multiline: true,
+        minProperties: 1,
       },
-      "ObjectPattern": {
-        "multiline": true
+      ObjectPattern: {
+        multiline: true,
       },
-      "ImportDeclaration": "never",
-      "ExportDeclaration": {
-        "multiline": true,
-        "minProperties": 3
-      }
-    }
+      ImportDeclaration: 'never',
+      ExportDeclaration: {
+        multiline: true,
+        minProperties: 3,
+      },
+    },
   ],
-  "object-curly-spacing": [
-    "error",
-    "always",
+  'object-curly-spacing': [
+    'error',
+    'always',
     {
-      "arraysInObjects": true,
-      "objectsInObjects": true
-    }
+      arraysInObjects: true,
+      objectsInObjects: true,
+    },
   ],
-  "object-property-newline": [
-    "error",
+  'object-property-newline': [
+    'error',
     {
-      "allowAllPropertiesOnSameLine": false
-    }
+      allowAllPropertiesOnSameLine: false,
+    },
   ],
-  "padded-blocks": [
-    "error",
-    "never"
+  'padded-blocks': [
+    'error',
+    'never',
   ],
-  "prefer-destructuring": [
-    "error",
+  'prefer-destructuring': [
+    'error',
     {
-      "object": true,
-      "array": false
-    }
+      object: true,
+      array: false,
+    },
   ],
-  "quotes": [
-    "error",
-    "single"
+  quotes: [
+    'error',
+    'single',
   ],
-  "quote-props": [
-    "error",
-    "as-needed"
+  'quote-props': [
+    'error',
+    'as-needed',
   ],
-  "retail-linter/sort-imports": "error",
-  "semi": [
-    "error",
-    "always"
+  'retail-linter/sort-imports': 'error',
+  semi: [
+    'error',
+    'always',
   ],
-  "semi-spacing": [
-    "error",
+  'semi-spacing': [
+    'error',
     {
-      "before": false,
-      "after": true
-    }
+      before: false,
+      after: true,
+    },
   ],
-  "space-before-blocks": [
-    "error",
-    "always"
+  'space-before-blocks': [
+    'error',
+    'always',
   ],
-  "space-in-parens": [
-    "error",
-    "never"
+  'space-in-parens': [
+    'error',
+    'never',
   ],
-  "space-infix-ops": "error",
-  "space-before-function-paren": [
-    "error",
-    "always"
+  'space-infix-ops': 'error',
+  'space-before-function-paren': [
+    'error',
+    'always',
   ],
-  "arrow-spacing": [
-    "error",
+  'arrow-spacing': [
+    'error',
     {
-      "before": true,
-      "after": true
-    }
+      before: true,
+      after: true,
+    },
   ],
-  "jsx-quotes": [
+  'jsx-quotes': [
     2,
-    "prefer-single"
+    'prefer-single',
   ],
-  "no-import-assign": "off",
-  "lines-between-class-members": [
-    "error",
-    "always"
+  'no-import-assign': 'off',
+  'lines-between-class-members': [
+    'error',
+    'always',
   ],
-  "prefer-arrow/prefer-arrow-functions": [
-    "error",
+  'prefer-arrow/prefer-arrow-functions': [
+    'error',
     {
-      "disallowPrototype": true,
-      "singleReturnOnly": false,
-      "classPropertiesAllowed": false
-    }
+      disallowPrototype: true,
+      singleReturnOnly: false,
+      classPropertiesAllowed: false,
+    },
   ],
-  "prefer-arrow-callback": [
-    "error",
+  'prefer-arrow-callback': [
+    'error',
     {
-      "allowNamedFunctions": true
-    }
+      allowNamedFunctions: true,
+    },
   ],
-  "func-style": [
-    "error",
-    "expression",
+  'func-style': [
+    'error',
+    'expression',
     {
-      "allowArrowFunctions": true
-    }
-  ]
-}
+      allowArrowFunctions: true,
+    },
+  ],
+};
