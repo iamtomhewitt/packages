@@ -26,7 +26,8 @@ const makeRequest = async<T>({ url, method, body, headers }: RequestParams): Pro
     const detail = contentType.includes('application/json') ? await response.json() : '';
     throw {
       code: response.status,
-      message: `${method} request failed for ${url} - ${JSON.stringify(detail)}`,
+      detail,
+      message: `${method} request failed for ${url}`,
       status: `${response.statusText}`,
     };
   }
