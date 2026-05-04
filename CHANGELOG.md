@@ -1,3 +1,7 @@
+## Version 2.1.1
+Released **4th May 2026 08:57:06pm** - *1 commits*
+- a276a04 fix: split error detail into separate property
+
 ## Version 2.1.0
 Released **4th May 2026 08:41:15pm** - *1 commits*
 - 69679b7 chore: add delete method
@@ -83,4 +87,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-          
+           
