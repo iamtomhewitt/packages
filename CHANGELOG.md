@@ -1,3 +1,7 @@
+## Version 2.1.2
+Released **4th May 2026 09:15:10pm** - *1 commits*
+- b23e163 fix: add default messaging to response methods
+
 ## Version 2.1.1
 Released **4th May 2026 08:57:06pm** - *1 commits*
 - a276a04 fix: split error detail into separate property
@@ -87,4 +91,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-           
+            
