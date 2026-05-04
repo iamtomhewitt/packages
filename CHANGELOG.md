@@ -1,3 +1,7 @@
+## Version 2.1.0
+Released **4th May 2026 08:41:15pm** - *1 commits*
+- 69679b7 chore: add delete method
+
 ## Version 2.0.0
 Released **4th May 2026 07:36:41pm** - *10 commits*
 - 93d343e chore: remove flag
@@ -79,4 +83,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-         
+          

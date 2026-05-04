@@ -1,6 +1,6 @@
 {
   "name": "@iamtomhewitt/http",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Tom Hewitt",
   "scripts": {
     "build": "rm -rf dist && tsc",
