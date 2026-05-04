@@ -3,7 +3,7 @@
 import argsParser from 'args-parser';
 
 import { eslint, markdownLint, stylelint } from './linters';
-import { log, linter, versionChecker } from './lib';
+import { linter, log, versionChecker } from './lib';
 
 (async () => {
   const args = argsParser(process.argv);

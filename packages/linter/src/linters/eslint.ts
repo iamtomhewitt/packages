@@ -4,7 +4,7 @@ import { ESLint } from 'eslint';
 
 import customRules from '../custom-rules';
 import rules from '../rules';
-import { log, linter } from '../lib';
+import { linter, log } from '../lib';
 
 const args = argsParser(process.argv);
 
