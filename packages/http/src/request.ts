@@ -71,6 +71,15 @@ const put = async<T>(url: string, body?: any, headers?: HeadersInit): Promise<T>
   });
 };
 
+const _delete = async<T>(url: string, body?: any, headers?: HeadersInit): Promise<T> => {
+  return await makeRequest({
+    body,
+    headers,
+    method: 'DELETE',
+    url,
+  });
+};
+
 /**
  * Simple HTTP module, that handles errors and returns response bodies.
  * 
@@ -78,6 +87,7 @@ const put = async<T>(url: string, body?: any, headers?: HeadersInit): Promise<T>
  * Otherwise, the response body is parsed as JSON and returned (if there is no response body, an empty JSON object is returned).
  */
 export const request = {
+  delete: _delete,
   get,
   post,
   put,
