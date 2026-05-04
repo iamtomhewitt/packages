@@ -24,7 +24,7 @@ const checkVersion = async () => {
   }
   catch (err) {
     // If we can't fetch the version from npm, just silently ignore unless an env var is present
-    if (process.env.DEBUG_RETAIL_LINTER) {
+    if (process.env.DEBUG_LINTER) {
       console.error(err);
     }
   }
