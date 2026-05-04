@@ -45,7 +45,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
         [currentVersion, colours.blue],
         newline,
         newline,
-        ['Creates and writes a new version of your project using your commits based on "@commitlint/config-conventional"', colours.blue],
+        ['Creates and writes a new version of your project using your commits based on "@commitlint/config-conventional",', colours.blue],
         newline,
         ['updates your CHANGELOG.md, creates a tag, and pushes it all to your remote.', colours.blue],
         newline,
@@ -72,7 +72,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     }
 
     if (!execSync('git status', {
-      encoding: 'utf8', 
+      encoding: 'utf8',
     }).includes('working tree clean') && !isDryRun) {
       throw new Error('Git working tree is not clean');
     }
@@ -99,10 +99,10 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     );
 
     log.blue(`Latest tag: ${latestTag}`);
-    log.blue(`Commits: \n  ${commits.join('\n  ')}`);
     log.blue(`feat commits: ${numberOfFeatureCommits}`);
     log.blue(`chore commits: ${numberOfChoreCommits}`);
     log.blue(`Files changed: ${numberOfFilesChanged}`);
+    log.blue(`Commits: \n  ${commits.join('\n  ')}`);
 
     const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
     const [major, minor, patch] = pkg.version.split('.').map(Number);
@@ -132,9 +132,14 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
         exclude: ['**/node_modules/**', '**/dist/**'],
       })
       .map(pkgPath => {
-        // TODO need to also update packageLock.packages[""].version
         const pkgContents = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
         pkgContents.version = newVersion;
+
+        // This could be a workspace package file
+        if (pkgPath.includes('package-lock.json') && pkgContents.packages['']) {
+          pkgContents.packages[''].version = newVersion;
+        }
+
         !isDryRun && fs.writeFileSync(pkgPath, JSON.stringify(pkgContents, null, 2));
         log.green(`Updated ${pkgPath} (${pkgContents.name}) to version ${newVersion}`);
       });
@@ -187,7 +192,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     }
   }
   catch (err) {
-    log.red('\n@iamtomhewitt/release failed to run:');
+    log.red('\n@iamtomhewitt/releaser failed to run:');
     log.red(`${err}`);
     process.exit(1);
   }

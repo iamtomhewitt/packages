@@ -1,7 +1,6 @@
 # @iamtomhewitt/releaser
 
-Creates and writes a new version of your project using your commits based on `@commitlint/config-conventional`
-updates your `CHANGELOG.md`, creates a tag, and pushes it all to your remote.
+Creates and writes a new version of your project using your commits based on `@commitlint/config-conventional`, updates your `CHANGELOG.md`, creates a tag, and pushes it all to your remote.
 
 - `feat` commits, or more than 25 changed files since the last tag, bumps major
 - `chore` commits bumps minor
