@@ -1,3 +1,16 @@
+## Version 2.0.0
+Released **4th May 2026 07:36:41pm** - *10 commits*
+- 93d343e chore: remove flag
+- e25662a fix: use local script instead of installed one to avoid symlink issues
+- 5d72dae ci: update ci to include http lib
+- 5b7b411 fix: remove index files to build correctly
+- a21bfca chore: add response methods
+- 91670a5 fix: use local linter instead of the registry one, to avoid symlinks
+- 1f2c958 chore: update request file
+- 59105f9 feat: create @iamtomhewitt/http
+- 0e6a9d9 deps: update package
+- b2c526a fix: typo in env var
+
 ## Version 1.0.7
 Released **4th May 2026 04:09:34pm** - *3 commits*
 - 2766710 fix: typo
@@ -66,4 +79,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-        
+         

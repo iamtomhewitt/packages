@@ -1,6 +1,6 @@
 {
   "name": "@iamtomhewitt/http",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "author": "Tom Hewitt",
   "scripts": {
     "build": "rm -rf dist && tsc",
@@ -8,8 +8,7 @@
     "lint-fix": "npm run lint -- --fix",
     "postbuild": "cp package.json dist && cp README.md dist"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "@tsconfig/node24": "24.0.4",
     "@types/node": "25.6.0",
