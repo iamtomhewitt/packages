@@ -3,7 +3,7 @@
   "version": "1.0.7",
   "author": "Tom Hewitt",
   "scripts": {
-    "build": "rm -rf dist && tsc && cp index.d.ts dist",
+    "build": "rm -rf dist && tsc",
     "lint": "ts-node ../linter/dist/index.js --sourceFolder=./ --type=typescript",
     "lint-fix": "npm run lint -- --fix",
     "postbuild": "cp package.json dist && cp README.md dist"

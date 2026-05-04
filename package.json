@@ -7,13 +7,12 @@
     "build": "npm run build --ws",
     "lint": "npm run lint --ws --if-present",
     "lint-fix": "npm run lint-fix --ws --if-present",
-    "release": "iamtomhewitt-releaser",
+    "release": "node ./packages/releaser/dist/index.js --dryRun",
     "prepare": "husky"
   },
   "devDependencies": {
     "@commitlint/cli": "20.5.0",
     "@commitlint/config-conventional": "20.5.0",
-    "@iamtomhewitt/releaser": "1.0.1",
     "husky": "9.1.7"
   },
   "workspaces": [
