@@ -47,6 +47,12 @@ const json = (statusCode: number, data: ResponseData) => {
  */
 export const response = {
   json,
-  noContent: (data: ResponseData) => json(204, data),
-  ok: (data: ResponseData) => json(200, data),
+  noContent: (data: ResponseData) => json(204, {
+    message: 'No content',
+    ...data,
+  }),
+  ok: (data: ResponseData) => json(200, {
+    message: 'OK',
+    ...data,
+  }),
 };
