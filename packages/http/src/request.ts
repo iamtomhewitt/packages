@@ -5,7 +5,7 @@ type RequestParams = {
   url: string;
 }
 
-const makeRequest = async ({ url, method, body, headers }: RequestParams) => {
+const makeRequest = async<T>({ url, method, body, headers }: RequestParams): Promise<T> => {
   const bodyToUse = JSON.stringify(body || {});
 
   console.log(`Making a ${method} request to ${url} with body ${bodyToUse}`);
@@ -32,13 +32,13 @@ const makeRequest = async ({ url, method, body, headers }: RequestParams) => {
   }
 
   if (response.status === 204) {
-    return;
+    return null as T;
   }
 
   const responseBody = await response.text();
 
   if (!responseBody) {
-    return {};
+    return {} as T;
   }
 
   return JSON.parse(responseBody);
@@ -46,31 +46,37 @@ const makeRequest = async ({ url, method, body, headers }: RequestParams) => {
 
 const get = async<T>(url: string, headers?: HeadersInit,): Promise<T> => {
   return await makeRequest({
-    url,
-    method: 'GET',
     body: undefined,
     headers,
+    method: 'GET',
+    url,
   });
 };
 
 const post = async<T>(url: string, body?: any, headers?: HeadersInit,): Promise<T> => {
   return await makeRequest({
-    url,
-    method: 'POST',
     body,
     headers,
+    method: 'POST',
+    url,
   });
 };
 
 const put = async<T>(url: string, body?: any, headers?: HeadersInit,): Promise<T> => {
   return await makeRequest({
-    url,
-    method: 'PUT',
     body,
     headers,
+    method: 'PUT',
+    url,
   });
 };
 
+/**
+ * Simple HTTP module, that handles errors and returns response bodies.
+ * 
+ * If the response is not ok, a `code`, `message`, and `status` is returned as the request body, with details. `204` returns an empty body.
+ * Otherwise, the response body is parsed as JSON and returned (if there is no response body, an empty JSON object is returned).
+ */
 export const request = {
   get,
   post,
