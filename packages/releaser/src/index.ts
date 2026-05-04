@@ -132,6 +132,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
         exclude: ['**/node_modules/**', '**/dist/**'],
       })
       .map(pkgPath => {
+        // TODO need to also update packageLock.packages[""].version
         const pkgContents = JSON.parse(fs.readFileSync(pkgPath, 'utf-8'));
         pkgContents.version = newVersion;
         !isDryRun && fs.writeFileSync(pkgPath, JSON.stringify(pkgContents, null, 2));
