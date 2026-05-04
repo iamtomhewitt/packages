@@ -1,3 +1,9 @@
+## Version 1.0.7
+Released **4th May 2026 04:09:34pm** - *3 commits*
+- 2766710 fix: typo
+- 5e83e82 fix: rename imports
+- faabada fix: update package-lock for workspace files
+
 ## Version 1.0.6
 Released **4th May 2026 03:23:17pm** - *1 commits*
 - 48c8eef dep: add extra dependencies
@@ -60,4 +66,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-       
+        
