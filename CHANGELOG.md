@@ -1,3 +1,7 @@
+## Version 1.0.4
+Released **4th May 2026 03:17:01pm** - *1 commits*
+- ddd819b ci: move to dependencies
+
 ## Version 1.0.3
 Released **3rd May 2026 10:06:43pm** - *3 commits*
 - b007eb9 fix: remove files property
@@ -48,4 +52,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-    
+     
