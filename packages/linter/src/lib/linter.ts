@@ -31,7 +31,7 @@ const showHelp = () => {
 };
 
 const showVersion = () => {
-  console.log(chalk.white(`Retail Linter ${currentVersion}`));
+  console.log(chalk.white(`@iamtomhewitt/linter ${currentVersion}`));
 };
 
 export const linter = {
