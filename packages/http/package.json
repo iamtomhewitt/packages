@@ -4,14 +4,13 @@
   "author": "Tom Hewitt",
   "scripts": {
     "build": "rm -rf dist && tsc && cp index.d.ts dist",
-    "lint": "iamtomhewitt-linter --sourceFolder=./ --type=typescript",
-    "lint-fix": "iamtomhewitt-linter --sourceFolder=./ --type=typescript --fix",
+    "lint": "ts-node ../linter/dist/index.js --sourceFolder=./ --type=typescript",
+    "lint-fix": "npm run lint -- --fix",
     "postbuild": "cp package.json dist && cp README.md dist"
   },
   "dependencies": {
   },
   "devDependencies": {
-    "@iamtomhewitt/linter": "1.0.7",
     "@tsconfig/node24": "24.0.4",
     "@types/node": "25.6.0",
     "esbuild": "0.28.0",

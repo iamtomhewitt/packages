@@ -9,8 +9,8 @@
   },
   "scripts": {
     "build": "rm -rf dist && ts-node build.ts",
-    "lint": "iamtomhewitt-linter --sourceFolder=./ --type=typescript",
-    "lint-fix": "iamtomhewitt-linter --sourceFolder=./ --type=typescript --fix",
+    "lint": "ts-node ../linter/dist/index.js --sourceFolder=./ --type=typescript",
+    "lint-fix": "npm run lint -- --fix",
     "postbuild": "cp package.json dist && cp README.md dist"
   },
   "dependencies": {
@@ -29,7 +29,6 @@
     "stylelint-order": "8.1.1"
   },
   "devDependencies": {
-    "@iamtomhewitt/linter": "1.0.7",
     "@tsconfig/node24": "24.0.4",
     "@types/eslint": "8.56.12",
     "@types/node": "25.6.0",

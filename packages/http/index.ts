@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-const { http } = require('./src/index.js');
+import { http } from './src';
 
-module.exports = {
+export default {
   http,
 };

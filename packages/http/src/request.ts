@@ -44,7 +44,7 @@ const makeRequest = async<T>({ url, method, body, headers }: RequestParams): Pro
   return JSON.parse(responseBody);
 };
 
-const get = async<T>(url: string, headers?: HeadersInit,): Promise<T> => {
+const get = async<T>(url: string, headers?: HeadersInit): Promise<T> => {
   return await makeRequest({
     body: undefined,
     headers,
@@ -53,7 +53,7 @@ const get = async<T>(url: string, headers?: HeadersInit,): Promise<T> => {
   });
 };
 
-const post = async<T>(url: string, body?: any, headers?: HeadersInit,): Promise<T> => {
+const post = async<T>(url: string, body?: any, headers?: HeadersInit): Promise<T> => {
   return await makeRequest({
     body,
     headers,
@@ -62,7 +62,7 @@ const post = async<T>(url: string, body?: any, headers?: HeadersInit,): Promise<
   });
 };
 
-const put = async<T>(url: string, body?: any, headers?: HeadersInit,): Promise<T> => {
+const put = async<T>(url: string, body?: any, headers?: HeadersInit): Promise<T> => {
   return await makeRequest({
     body,
     headers,
