@@ -1,6 +1,6 @@
 {
   "name": "@iamtomhewitt/releaser",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Tom Hewitt",
   "main": "index.js",
   "type": "module",
