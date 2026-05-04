@@ -4,7 +4,7 @@ import { ESLint } from 'eslint';
 
 import customRules from '../custom-rules';
 import rules from '../rules';
-import { log, retailLinter } from '../lib';
+import { log, linter } from '../lib';
 
 const args = argsParser(process.argv);
 
@@ -13,7 +13,7 @@ const lint = async () => {
     log.info('\nInspecting code...');
     const { sourceFolder, fix = false, ignorePatterns: userIgnore = '', type = '' } = args;
 
-    const ignorePatterns = retailLinter.eslintFilesIgnoredByDefault.concat(userIgnore.split(',')).filter(x => x);
+    const ignorePatterns = linter.eslintFilesIgnoredByDefault.concat(userIgnore.split(',')).filter(x => x);
     const rulesKey = type.replace('-r', 'R').replace('-t', 'T');
     const overrideConfig = (rules as any)[rulesKey];
     const { baseRules } = rules;
@@ -27,17 +27,17 @@ const lint = async () => {
 
     const eslint = new ESLint({
       plugins: {
-        'retail-linter': customRules,
+        '@iamtomhewitt/linter': customRules,
       },
       overrideConfig: {
         ...overrideConfig,
         plugins: [
           ...(overrideConfig.plugins ?? []),
-          'retail-linter',
+          '@iamtomhewitt/linter',
         ],
         rules: {
           ...(overrideConfig.rules ?? {}),
-          'retail-linter/sort-imports': 'error',
+          '@iamtomhewitt/linter/sort-imports': 'error',
         },
       },
       fix,

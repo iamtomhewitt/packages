@@ -10,10 +10,10 @@ export default {
     sourceType: 'module',
   },
   plugins: [
-    'retail-linter',
+    '@iamtomhewitt/linter',
     'prefer-arrow',
   ],
   rules: {
-    'retail-linter/sort-imports': 'error',
+    '@iamtomhewitt/linter/sort-imports': 'error',
   },
 };

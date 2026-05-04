@@ -1,3 +1,3 @@
 export { log } from './log';
-export { retailLinter } from './retail-linter';
+export { linter } from './linter';
 export { versionChecker } from './version-checker';

@@ -3,14 +3,14 @@
 import argsParser from 'args-parser';
 
 import { eslint, markdownLint, stylelint } from './linters';
-import { log, retailLinter, versionChecker } from './lib';
+import { log, linter, versionChecker } from './lib';
 
 (async () => {
   const args = argsParser(process.argv);
   const { sourceFolder, help, type } = args;
 
   if (help) {
-    retailLinter.showHelp();
+    linter.showHelp();
     process.exit(0);
   }
 
@@ -31,7 +31,7 @@ import { log, retailLinter, versionChecker } from './lib';
 
   await versionChecker.checkVersion();
 
-  retailLinter.showVersion();
+  linter.showVersion();
 
   const linters = [
     eslint,
@@ -51,6 +51,6 @@ import { log, retailLinter, versionChecker } from './lib';
 })().catch((error) => {
   log.error('There was an error!');
   log.log(error);
-  retailLinter.showHelp();
+  linter.showHelp();
   process.exit(1);
 });

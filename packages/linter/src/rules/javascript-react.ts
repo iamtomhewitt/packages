@@ -24,7 +24,7 @@ export default {
     },
   },
   plugins: [
-    'retail-linter',
+    '@iamtomhewitt/linter',
     'prefer-arrow',
   ],
   rules: {

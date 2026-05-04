@@ -16,7 +16,7 @@ export default {
   },
   plugins: [
     '@typescript-eslint',
-    'retail-linter',
+    '@iamtomhewitt/linter',
     'prefer-arrow',
   ],
   rules: {

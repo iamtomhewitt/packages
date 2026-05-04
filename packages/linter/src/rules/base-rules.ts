@@ -97,7 +97,7 @@ export default {
     'error',
     'as-needed',
   ],
-  'retail-linter/sort-imports': 'error',
+  '@iamtomhewitt/linter/sort-imports': 'error',
   semi: [
     'error',
     'always',

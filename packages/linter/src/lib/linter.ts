@@ -34,7 +34,7 @@ const showVersion = () => {
   console.log(chalk.white(`Retail Linter ${currentVersion}`));
 };
 
-export const retailLinter = {
+export const linter = {
   eslintFilesIgnoredByDefault,
   showHelp,
   showVersion,
