@@ -91,17 +91,10 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
 
     const numberOfFeatureCommits = countCommits('feat');
     const numberOfChoreCommits = countCommits('chore');
-    const numberOfFilesChanged = parseInt(
-      execSync(`git diff --name-only ${latestTag}..HEAD | wc -l`)
-        .toString()
-        .trim(),
-      10,
-    );
 
     log.blue(`Latest tag: ${latestTag}`);
     log.blue(`feat commits: ${numberOfFeatureCommits}`);
     log.blue(`chore commits: ${numberOfChoreCommits}`);
-    log.blue(`Files changed: ${numberOfFilesChanged}`);
     log.blue(`Commits: \n  ${commits.join('\n  ')}`);
 
     const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
@@ -111,7 +104,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     let newMinor = minor;
     let newPatch = patch;
 
-    if (numberOfFeatureCommits > 0 || numberOfFilesChanged >= 25) {
+    if (numberOfFeatureCommits > 0) {
       newMajor++;
       newMinor = 0;
       newPatch = 0;
