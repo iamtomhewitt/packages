@@ -1,3 +1,7 @@
+## Version 2.2.0
+Released **5th May 2026 03:44:59pm** - *1 commits*
+- ca2936d chore: remove number of files comparison
+
 ## Version 2.1.2
 Released **4th May 2026 09:15:10pm** - *1 commits*
 - b23e163 fix: add default messaging to response methods
@@ -91,4 +95,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-            
+             
