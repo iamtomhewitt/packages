@@ -1,3 +1,7 @@
+## Version 3.1.0
+Released **10th May 2026 02:00:39pm** - *1 commits*
+- f511f52 chore: add internal server error class
+
 ## Version 3.0.0
 Released **10th May 2026 01:49:37pm** - *1 commits*
 - 7e49256 feat: add error package
@@ -99,4 +103,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-              
+               
