@@ -27,6 +27,12 @@ export class UnauthorisedError extends LambdaError {
   }
 }
 
+export class InternalServerError extends LambdaError {
+  constructor (message: string) {
+    super('InternalServerError', message, 500);
+  }
+}
+
 /**
  * Wraps `handler` in `onError`, separating the need for having to write `try/catch` handling. Mainly useful for AWS Lambdas.
  * @param handler Main function to call.
