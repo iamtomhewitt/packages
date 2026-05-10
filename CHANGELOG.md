@@ -1,3 +1,7 @@
+## Version 3.0.0
+Released **10th May 2026 01:49:37pm** - *1 commits*
+- 7e49256 feat: add error package
+
 ## Version 2.2.0
 Released **5th May 2026 03:44:59pm** - *1 commits*
 - ca2936d chore: remove number of files comparison
@@ -95,4 +99,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-             
+              
