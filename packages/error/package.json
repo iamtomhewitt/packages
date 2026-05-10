@@ -1,0 +1,19 @@
+{
+  "name": "@iamtomhewitt/error",
+  "version": "2.2.0",
+  "author": "Tom Hewitt",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "lint": "ts-node ../linter/dist/index.js --sourceFolder=./ --type=typescript",
+    "lint-fix": "npm run lint -- --fix",
+    "postbuild": "cp package.json dist && cp README.md dist"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@tsconfig/node24": "24.0.4",
+    "@types/node": "25.6.0",
+    "esbuild": "0.28.0",
+    "ts-node": "10.9.2",
+    "typescript": "6.0.3"
+  }
+}

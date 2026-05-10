@@ -34,3 +34,4 @@ jobs:
           (cd packages/http/dist && npm publish --access public)
           (cd packages/linter/dist && npm publish --access public)
           (cd packages/releaser/dist && npm publish --access public)
+          (cd packages/error/dist && npm publish --access public)
