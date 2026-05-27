@@ -1,3 +1,7 @@
+## Version 3.1.1
+Released **27th May 2026 10:09:10am** - *1 commits*
+- 29a5252 style: update log colours of the releaser
+
 ## Version 3.1.0
 Released **10th May 2026 02:00:39pm** - *1 commits*
 - f511f52 chore: add internal server error class
@@ -103,4 +107,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-               
+                
