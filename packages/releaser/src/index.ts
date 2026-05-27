@@ -92,10 +92,17 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     const numberOfFeatureCommits = countCommits('feat');
     const numberOfChoreCommits = countCommits('chore');
 
-    log.blue(`Latest tag: ${latestTag}`);
-    log.blue(`feat commits: ${numberOfFeatureCommits}`);
-    log.blue(`chore commits: ${numberOfChoreCommits}`);
-    log.blue(`Commits: \n  ${commits.join('\n  ')}`);
+    log.multiColour([['Commits  ', colours.white]]);
+    commits.forEach(commit => {
+      const [id, type, ...rest] = commit.split(' ');
+      log.multiColour([
+        ['   - ', colours.white],
+        [`${id} `, colours.yellow],
+        [`${type} `.padEnd(10, ' '), colours.magenta],
+        [rest.join(' '), colours.white],
+      ]);
+    });
+    log.multiColour([[' ', colours.white]]);
 
     const pkg = JSON.parse(fs.readFileSync('./package.json', 'utf-8'));
     const [major, minor, patch] = pkg.version.split('.').map(Number);
@@ -118,7 +125,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
     }
 
     const newVersion = args.forceVersion || `${newMajor}.${newMinor}.${newPatch}`;
-    log.blue(`New version: ${newVersion}`);
+    log.multiColour([['New version: ', colours.white], [newVersion, colours.green]]);
 
     fs
       .globSync('**/{package.json,package-lock.json}', {
@@ -134,7 +141,12 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
         }
 
         !isDryRun && fs.writeFileSync(pkgPath, JSON.stringify(pkgContents, null, 2));
-        log.green(`Updated ${pkgPath} (${pkgContents.name}) to version ${newVersion}`);
+        log.multiColour([
+          ['Updated ', colours.white], 
+          [`${pkgPath} (${pkgContents.name}) `, colours.blue], 
+          ['to version ', colours.white], 
+          [newVersion, colours.green],
+        ]);
       });
 
     const now = (() => {
@@ -181,7 +193,7 @@ const currentVersion = __VERSION__; // injected by esbuild at build time
       execSync('git push --tags');
     }
     else {
-      log.blue('No changes have been made as the dry run flag (--dryRun) is present');
+      log.blue('\nNo changes have been made as the dry run flag (--dryRun) is present');
     }
   }
   catch (err) {
