@@ -1,10 +1,10 @@
 export default {
-  extends: 'eslint:recommended',
   env: {
     es2021: true,
     jest: true,
     node: true,
   },
+  extends: 'eslint:recommended',
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -12,6 +12,7 @@ export default {
   plugins: [
     '@iamtomhewitt/linter',
     'prefer-arrow',
+    'sort-keys-fix',
   ],
   rules: {
     '@iamtomhewitt/linter/sort-imports': 'error',

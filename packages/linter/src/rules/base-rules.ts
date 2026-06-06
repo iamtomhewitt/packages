@@ -1,4 +1,12 @@
 export default {
+  '@iamtomhewitt/linter/sort-imports': 'error',
+  'arrow-spacing': [
+    'error',
+    {
+      after: true,
+      before: true,
+    },
+  ],
   'brace-style': [
     'error',
     'stroustrup',
@@ -10,12 +18,19 @@ export default {
   'comma-spacing': [
     'error',
     {
-      before: false,
       after: true,
+      before: false,
     },
   ],
   curly: [
     'error',
+  ],
+  'func-style': [
+    'error',
+    'expression',
+    {
+      allowArrowFunctions: true,
+    },
   ],
   indent: [
     'error',
@@ -24,23 +39,32 @@ export default {
       SwitchCase: 1,
     },
   ],
+  'jsx-quotes': [
+    2,
+    'prefer-single',
+  ],
   'key-spacing': [
     'error',
     {
-      beforeColon: false,
       afterColon: true,
+      beforeColon: false,
       mode: 'strict',
     },
   ],
   'keyword-spacing': [
     'error',
     {
-      before: true,
       after: true,
+      before: true,
     },
+  ],
+  'lines-between-class-members': [
+    'error',
+    'always',
   ],
   'max-len': 'off',
   'no-console': 'off',
+  'no-import-assign': 'off',
   'no-multiple-empty-lines': [
     'error',
     {
@@ -50,17 +74,17 @@ export default {
   'object-curly-newline': [
     'error',
     {
-      ObjectExpression: {
-        multiline: true,
-        minProperties: 1,
-      },
-      ObjectPattern: {
+      ExportDeclaration: {
+        minProperties: 3,
         multiline: true,
       },
       ImportDeclaration: 'never',
-      ExportDeclaration: {
+      ObjectExpression: {
+        minProperties: 1,
         multiline: true,
-        minProperties: 3,
+      },
+      ObjectPattern: {
+        multiline: true,
       },
     },
   ],
@@ -82,22 +106,35 @@ export default {
     'error',
     'never',
   ],
+  'prefer-arrow-callback': [
+    'error',
+    {
+      allowNamedFunctions: true,
+    },
+  ],
+  'prefer-arrow/prefer-arrow-functions': [
+    'error',
+    {
+      classPropertiesAllowed: false,
+      disallowPrototype: true,
+      singleReturnOnly: false,
+    },
+  ],
   'prefer-destructuring': [
     'error',
     {
-      object: true,
       array: false,
+      object: true,
     },
-  ],
-  quotes: [
-    'error',
-    'single',
   ],
   'quote-props': [
     'error',
     'as-needed',
   ],
-  '@iamtomhewitt/linter/sort-imports': 'error',
+  quotes: [
+    'error',
+    'single',
+  ],
   semi: [
     'error',
     'always',
@@ -105,11 +142,18 @@ export default {
   'semi-spacing': [
     'error',
     {
-      before: false,
       after: true,
+      before: false,
     },
   ],
+  'sort-keys-fix/sort-keys-fix': [
+    'error',
+  ],
   'space-before-blocks': [
+    'error',
+    'always',
+  ],
+  'space-before-function-paren': [
     'error',
     'always',
   ],
@@ -118,45 +162,4 @@ export default {
     'never',
   ],
   'space-infix-ops': 'error',
-  'space-before-function-paren': [
-    'error',
-    'always',
-  ],
-  'arrow-spacing': [
-    'error',
-    {
-      before: true,
-      after: true,
-    },
-  ],
-  'jsx-quotes': [
-    2,
-    'prefer-single',
-  ],
-  'no-import-assign': 'off',
-  'lines-between-class-members': [
-    'error',
-    'always',
-  ],
-  'prefer-arrow/prefer-arrow-functions': [
-    'error',
-    {
-      disallowPrototype: true,
-      singleReturnOnly: false,
-      classPropertiesAllowed: false,
-    },
-  ],
-  'prefer-arrow-callback': [
-    'error',
-    {
-      allowNamedFunctions: true,
-    },
-  ],
-  'func-style': [
-    'error',
-    'expression',
-    {
-      allowArrowFunctions: true,
-    },
-  ],
 };

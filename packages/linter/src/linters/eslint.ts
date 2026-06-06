@@ -26,9 +26,7 @@ const lint = async () => {
     };
 
     const eslint = new ESLint({
-      plugins: {
-        '@iamtomhewitt/linter': customRules,
-      },
+      fix,
       overrideConfig: {
         ...overrideConfig,
         plugins: [
@@ -40,7 +38,9 @@ const lint = async () => {
           '@iamtomhewitt/linter/sort-imports': 'error',
         },
       },
-      fix,
+      plugins: {
+        '@iamtomhewitt/linter': customRules,
+      },
     });
 
     const results = await eslint.lintFiles([folderToLint]);

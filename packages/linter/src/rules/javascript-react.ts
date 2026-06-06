@@ -2,30 +2,31 @@ export default {
   env: {
     browser: true,
     jasmine: true,
-    node: true,
     jest: true,
+    node: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
   ],
   globals: {
-    __DEV__: false,
+    Map: true,
     Promise: true,
     Set: true,
-    Map: true,
     WeakMap: true,
+    __DEV__: false,
   },
   parser: '@babel/eslint-parser',
   parserOptions: {
-    ecmaVersion: 'latest',
     ecmaFeatures: {
       spread: true,
     },
+    ecmaVersion: 'latest',
   },
   plugins: [
     '@iamtomhewitt/linter',
     'prefer-arrow',
+    'sort-keys-fix',
   ],
   rules: {
     'react/button-has-type': 0,
@@ -41,6 +42,13 @@ export default {
     ],
     'react/jsx-closing-tag-location': 'error',
     'react/jsx-curly-newline': 'error',
+    'react/jsx-curly-spacing': [
+      'error',
+      {
+        children: true,
+        when: 'never',
+      },
+    ],
     'react/jsx-equals-spacing': [
       'error',
       'never',
@@ -54,8 +62,8 @@ export default {
       'error',
       {
         maximum: {
-          single: 2,
           multi: 1,
+          single: 2,
         },
       },
     ],
@@ -72,10 +80,10 @@ export default {
     'react/jsx-tag-spacing': [
       'error',
       {
-        closingSlash: 'never',
-        beforeSelfClosing: 'always',
         afterOpening: 'never',
         beforeClosing: 'never',
+        beforeSelfClosing: 'always',
+        closingSlash: 'never',
       },
     ],
     'react/jsx-wrap-multilines': [
@@ -94,9 +102,11 @@ export default {
         ignoreStateless: true,
       },
     ],
+    'react/no-unescaped-entities': 'off',
     'react/no-unused-prop-types': [
       'error',
     ],
+    'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 0,
     'react/self-closing-comp': [
       'error',
@@ -117,15 +127,6 @@ export default {
       },
     ],
     'react/sort-prop-types': 'error',
-    'react/jsx-curly-spacing': [
-      'error',
-      {
-        when: 'never',
-        children: true,
-      },
-    ],
-    'react/react-in-jsx-scope': 'off',
-    'react/no-unescaped-entities': 'off',
   },
   settings: {
     react: {

@@ -36,14 +36,14 @@ const findMarkdownFiles = (dir = '', results: string[] = []) => {
 
 const runLint = (files: string[] = []) => {
   return markdownlint({
-    files,
     config: {
       'descriptive-link-text': false,
       'first-line-h1': 'warning',
+      line_length: false,
       'no-inline-html': false,
       'table-column-style': false,
-      line_length: false,
     },
+    files,
   });
 };
 

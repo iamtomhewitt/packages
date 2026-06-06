@@ -11,11 +11,11 @@ const makeRequest = async<T>({ url, method, body, headers }: RequestParams): Pro
   console.log(`Making a ${method} request to ${url} with body ${bodyToUse}`);
 
   const response = await fetch(url, {
-    method,
     headers: {
       'Content-Type': 'application/json',
       ...headers,
     },
+    method,
     ...method !== 'GET' && {
       body: bodyToUse,
     },

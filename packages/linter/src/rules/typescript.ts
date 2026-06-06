@@ -15,19 +15,20 @@ export default {
     '@typescript-eslint',
     '@iamtomhewitt/linter',
     'prefer-arrow',
+    'sort-keys-fix',
   ],
   rules: {
-    '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/type-annotation-spacing': [
       'error',
       {
-        before: false,
         after: true,
+        before: false,
         overrides: {
           arrow: {
-            before: true,
             after: true,
+            before: true,
           },
         },
       },

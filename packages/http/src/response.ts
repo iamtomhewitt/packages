@@ -19,14 +19,14 @@ const json = (statusCode: number, data: ResponseData) => {
 
   return {
     body: JSON.stringify({
-      message: data.message,
       data: data.body,
+      message: data.message,
     }),
     headers: {
-      'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': true,
       'Access-Control-Allow-Headers': 'Content-Type,Authorization',
       'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+      'Access-Control-Allow-Origin': '*',
       ...data.headers,
     },
     statusCode,

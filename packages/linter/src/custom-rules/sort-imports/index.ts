@@ -6,33 +6,6 @@ import shared from './shared';
 
 // Adapted from https://github.com/lydell/eslint-plugin-simple-import-sort
 const sortImportsRule: Rule.RuleModule = {
-  meta: {
-    type: 'layout',
-    fixable: 'code',
-    schema: [
-      {
-        type: 'object',
-        properties: {
-          groups: {
-            type: 'array',
-            items: {
-              type: 'array',
-              items: {
-                type: 'string',
-              },
-            },
-          },
-        },
-        additionalProperties: false,
-      },
-    ],
-    docs: {
-      url: 'https://github.com/lydell/eslint-plugin-simple-import-sort#sort-order',
-    },
-    messages: {
-      sort: 'Imports are in the wrong order. The import order should be: react related, third party, local, style',
-    },
-  },
   create: (context: any) => {
     const rawGroups = [
       // Packages `react` related packages come first.
@@ -68,6 +41,33 @@ const sortImportsRule: Rule.RuleModule = {
       },
     };
   },
+  meta: {
+    docs: {
+      url: 'https://github.com/lydell/eslint-plugin-simple-import-sort#sort-order',
+    },
+    fixable: 'code',
+    messages: {
+      sort: 'Imports are in the wrong order. The import order should be: react related, third party, local, style',
+    },
+    schema: [
+      {
+        additionalProperties: false,
+        properties: {
+          groups: {
+            items: {
+              items: {
+                type: 'string',
+              },
+              type: 'array',
+            },
+            type: 'array',
+          },
+        },
+        type: 'object',
+      },
+    ],
+    type: 'layout',
+  },
 };
 
 export default sortImportsRule;
@@ -90,8 +90,8 @@ function maybeReportChunkSorting (chunk: any, context: any, outerGroups: any) {
 function makeSortedItems (items: any[], outerGroups: any) {
   const itemGroups = outerGroups.map((groups: any[]) =>
     groups.map((regex) => ({
-      regex,
       items: [],
+      regex,
     })),
   );
   const rest = [];
@@ -125,8 +125,8 @@ function makeSortedItems (items: any[], outerGroups: any) {
 
   return itemGroups
     .concat([[{
-      regex: /^/,
       items: rest,
+      regex: /^/,
     }]])
     .map((groups: any[]) => groups.filter((group) => group.items.length > 0))
     .filter((groups: any[]) => groups.length > 0)

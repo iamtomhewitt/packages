@@ -13,21 +13,21 @@ const lint = async () => {
     const files = '**/*.scss';
     const formatter = 'string';
     const config = {
+      extends: ['stylelint-config-standard', 'stylelint-config-standard-scss'],
+      plugins: ['stylelint-order'],
       rules: {
         'alpha-value-notation': null,
         'declaration-block-no-redundant-longhand-properties': null,
         'order/properties-alphabetical-order': true,
         'selector-no-vendor-prefix': null,
       },
-      extends: ['stylelint-config-standard', 'stylelint-config-standard-scss'],
-      plugins: ['stylelint-order'],
     };
 
     const result = await stylelinter.lint({
       config,
       files,
-      formatter,
       fix,
+      formatter,
     });
 
     result.report && log.log(result.report);

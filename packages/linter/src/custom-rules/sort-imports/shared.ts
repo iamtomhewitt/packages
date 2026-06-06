@@ -50,12 +50,12 @@ function maybeReportSorting (context: any, sorted: any, start: any, end: any) {
   const original = sourceCode.getText().slice(start, end);
   if (original !== sorted) {
     context.report({
-      messageId: 'sort',
-      loc: {
-        start: sourceCode.getLocFromIndex(start),
-        end: sourceCode.getLocFromIndex(end),
-      },
       fix: (fixer: any) => fixer.replaceTextRange([start, end], sorted),
+      loc: {
+        end: sourceCode.getLocFromIndex(end),
+        start: sourceCode.getLocFromIndex(start),
+      },
+      messageId: 'sort',
     });
   }
 }
@@ -135,13 +135,13 @@ function printSortedItems (sortedItems: any[], originalItems: any[], sourceCode:
   const lastOriginalItem = originalItems[originalItems.length - 1];
   const nextToken = lastSortedItem.needsNewline
     ? sourceCode.getTokenAfter(lastOriginalItem.node, {
-      includeComments: true,
       filter: (token: any) =>
         !isLineComment(token) &&
         !(
           isBlockComment(token) &&
           token.loc.end.line === lastOriginalItem.node.loc.end.line
         ),
+      includeComments: true,
     })
     : undefined;
   const maybeNewline =
@@ -225,16 +225,16 @@ function getImportExportItems (
     const source = getSource(node);
 
     return {
-      node,
       code,
-      start: start - indentation.length,
       end: end + trailingSpaces.length,
-      isSideEffectImport: isSideEffectImport(node, sourceCode),
-      source,
       index: nodeIndex,
+      isSideEffectImport: isSideEffectImport(node, sourceCode),
       needsNewline:
         commentsAfter.length > 0 &&
         isLineComment(commentsAfter[commentsAfter.length - 1]),
+      node,
+      source,
+      start: start - indentation.length,
     };
   });
 }
@@ -275,11 +275,11 @@ function handleLastSemicolon (chunk: any, sourceCode: any) {
   // Preserve the start position, but use the end position of the `from` string.
   const newLastNode = {
     ...lastNode,
-    range: [lastNode.range[0], nextToLastToken.range[1]],
     loc: {
-      start: lastNode.loc.start,
       end: nextToLastToken.loc.end,
+      start: lastNode.loc.start,
     },
+    range: [lastNode.range[0], nextToLastToken.range[1]],
   };
 
   return chunk.slice(0, lastIndex).concat(newLastNode);
@@ -337,8 +337,8 @@ function printWithSortedSpecifiers (node: any, sourceCode: any, getSpecifiers: a
           isNewline(previous.after[previous.after.length - 1])
         )
         ? [{
-          type: 'Newline',
           code: newline,
+          type: 'Newline',
         }]
         : [];
 
@@ -348,8 +348,8 @@ function printWithSortedSpecifiers (node: any, sourceCode: any, getSpecifiers: a
         ...item.before,
         ...item.specifier,
         {
-          type: 'Comma',
           code: ',',
+          type: 'Comma',
         },
         ...item.after,
       ];
@@ -375,8 +375,8 @@ function printWithSortedSpecifiers (node: any, sourceCode: any, getSpecifiers: a
     needsStartingNewline(itemsResult.after) &&
       !isNewline(sorted[sorted.length - 1])
       ? [{
-        type: 'Newline',
         code: newline,
+        type: 'Newline',
       }]
       : [];
 
@@ -411,8 +411,8 @@ function printWithSortedSpecifiers (node: any, sourceCode: any, getSpecifiers: a
 // be compatible with other stylistic ESLint rules.
 function getSpecifierItems (tokens: any[]) {
   const result: any = {
-    before: [],
     after: [],
+    before: [],
     items: [],
   };
 
@@ -595,12 +595,16 @@ function getSpecifierItems (tokens: any[]) {
 
 function makeEmptyItem () {
   return {
+    
+    after: [],
+    
+    before: [],
+    
+    hadComma: false,
+    
+    specifier: [],
     // "before" | "specifier" | "after"
     state: 'before',
-    before: [],
-    after: [],
-    specifier: [],
-    hadComma: false,
   };
 }
 
@@ -662,12 +666,12 @@ function parseWhitespace (whitespace: string) {
       .map((spacesOrNewline, index) =>
         index % 2 === 0
           ? {
-            type: 'Spaces',
             code: spacesOrNewline,
+            type: 'Spaces',
           }
           : {
-            type: 'Newline',
             code: spacesOrNewline,
+            type: 'Newline',
           },
       )
       // Remove empty spaces since it makes debugging easier.
@@ -840,8 +844,8 @@ function sortSpecifierItems (items: any[]) {
 }
 
 const collator = new Intl.Collator('en', {
-  sensitivity: 'base',
   numeric: true,
+  sensitivity: 'base',
 });
 
 function compare (a: any, b: any) {
@@ -880,6 +884,10 @@ function getSource (node: any) {
   const source = node.source.value;
 
   return {
+    
+    kind: getImportExportKind(node),
+    
+    originalSource: source,
     // Sort by directory level rather than by string length.
     source: source
       // Treat `.` as `./`, `..` as `../`, `../..` as `../../` etc.
@@ -905,8 +913,6 @@ function getSource (node: any) {
             throw new Error(`Unknown source substitution character: ${char}`);
         }
       }),
-    originalSource: source,
-    kind: getImportExportKind(node),
   };
 }
 

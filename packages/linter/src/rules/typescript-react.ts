@@ -18,32 +18,25 @@ export default {
     '@typescript-eslint',
     '@iamtomhewitt/linter',
     'prefer-arrow',
+    'sort-keys-fix',
   ],
   rules: {
-    '@typescript-eslint/no-non-null-assertion': 'error',
-    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'error',
     '@typescript-eslint/type-annotation-spacing': [
       'error',
       {
-        before: false,
         after: true,
+        before: false,
         overrides: {
           arrow: {
-            before: true,
             after: true,
+            before: true,
           },
         },
       },
     ],
-    'react/jsx-curly-spacing': [
-      'error',
-      {
-        when: 'never',
-        children: true,
-      },
-    ],
-    'react/react-in-jsx-scope': 'off',
     'react/button-has-type': 0,
     'react/hook-use-state': [
       'error',
@@ -57,6 +50,13 @@ export default {
     ],
     'react/jsx-closing-tag-location': 'error',
     'react/jsx-curly-newline': 'error',
+    'react/jsx-curly-spacing': [
+      'error',
+      {
+        children: true,
+        when: 'never',
+      },
+    ],
     'react/jsx-equals-spacing': [
       'error',
       'never',
@@ -70,8 +70,8 @@ export default {
       'error',
       {
         maximum: {
-          single: 2,
           multi: 1,
+          single: 2,
         },
       },
     ],
@@ -88,10 +88,10 @@ export default {
     'react/jsx-tag-spacing': [
       'error',
       {
-        closingSlash: 'never',
-        beforeSelfClosing: 'always',
         afterOpening: 'never',
         beforeClosing: 'never',
+        beforeSelfClosing: 'always',
+        closingSlash: 'never',
       },
     ],
     'react/jsx-wrap-multilines': [
@@ -110,9 +110,11 @@ export default {
         ignoreStateless: true,
       },
     ],
+    'react/no-unescaped-entities': 'off',
     'react/no-unused-prop-types': [
       'error',
     ],
+    'react/react-in-jsx-scope': 'off',
     'react/require-default-props': 0,
     'react/self-closing-comp': [
       'error',
@@ -132,7 +134,6 @@ export default {
         ],
       },
     ],
-    'react/no-unescaped-entities': 'off',
   },
   settings: {
     react: {

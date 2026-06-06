@@ -19,7 +19,6 @@ const log = {
   blue: (str: string) => console.log(colours.blue, str),
   clear: () => console.log('', colours.reset),
   green: (str: string) => console.log(colours.green, str),
-  red: (str: string) => console.log(colours.red, str),
   multiColour: (segments: string[][]) => {
     const output = segments
       .map((segment) => {
@@ -29,6 +28,7 @@ const log = {
       .join('');
     console.log(output + colours.reset);
   },
+  red: (str: string) => console.log(colours.red, str),
 };
 
 const currentVersion = __VERSION__; // injected by esbuild at build time
