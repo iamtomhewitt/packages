@@ -1,3 +1,7 @@
+## Version 3.1.2
+Released **6th Jun 2026 02:34:44pm** - *1 commits*
+- 3dc4c67 style: add json key sort linter
+
 ## Version 3.1.1
 Released **27th May 2026 10:09:10am** - *1 commits*
 - 29a5252 style: update log colours of the releaser
@@ -107,4 +111,4 @@ Released **3rd May 2026 09:38:31pm** - *32 commits*
 - db924b5 testing husky
 - e0a6302 add readme
 
-                
+                 
